@@ -1,0 +1,13 @@
+{
+  "name": "example-deploy-cloud-functions-with-cloud-build",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "functions-framework --target=helloWorld"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.2.1"
+  }
+}

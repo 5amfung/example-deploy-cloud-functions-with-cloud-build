@@ -1,0 +1,21 @@
+#
+# Build steps.
+#
+steps:
+  - id: 'Check branch'
+    name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "✨Let's see what we need for branch $BRANCH_NAME @ $REPO_NAME... ✨"
+        case $BRANCH_NAME in
+          master)
+            echo "✨Deploy to Cloud Functions✨"
+            gcloud functions deploy download-cme --entry-point downloadCme --runtime nodejs10 --trigger-topic cme-download && \
+            echo "🚀 Deployed"
+          ;;
+          *)
+            echo "🎉👍👏 Nothing to do for branch $BRANCH_NAME. Done."
+        esac
+timeout: 300s
