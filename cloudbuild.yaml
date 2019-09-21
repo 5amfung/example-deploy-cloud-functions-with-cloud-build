@@ -12,7 +12,7 @@ steps:
         case $BRANCH_NAME in
           master)
             echo "✨Deploy to Cloud Functions✨"
-            gcloud functions deploy download-cme --entry-point downloadCme --runtime nodejs10 --trigger-topic cme-download && \
+            gcloud functions deploy helloWorld --entry-point helloWorld --runtime nodejs10 && \
             echo "🚀 Deployed"
           ;;
           *)
